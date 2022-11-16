@@ -6,6 +6,16 @@ import { saveCartID, getSavedCartIDs } from './helpers/cartFunctions';
 
 const productShow = document.querySelector('.products');
 const list = document.querySelector('.cart__products');
+const totalPrice = document.querySelector('.total-price');
+let totalValue = 0;
+
+const getAllProductsToBuy = async () => {
+  const productIds = getSavedCartIDs();
+  return productIds.map((id) => {
+    const productInfos = fetchProduct(id);
+    return productInfos;
+  });
+};
 
 const showLoading = (type = 'load') => {
   const load = document.createElement('h1');
@@ -21,18 +31,17 @@ const showLoading = (type = 'load') => {
 
 const hideLoading = () => document.querySelector('.loading').remove();
 
-const buyList = async (self) => {
-  const id = self.target.parentNode.firstChild.innerText;
-  saveCartID(id);
-  const productInfos = await fetchProduct(id);
-  const projectAdd = createCartProductElement(productInfos);
-  list.appendChild(projectAdd);
-};
-
-const addProductButton = () => {
-  const allButtons = document.querySelectorAll('.product__add');
-  allButtons.forEach((button) => {
-    button.addEventListener('click', buyList);
+const updateDeleteButton = (productList) => {
+  const deleteButtons = document.querySelectorAll('.cart__item');
+  deleteButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const id = button.firstChild.innerText;
+      const product = productList.find((product) => product.id === id);
+      const { price } = product;
+      totalValue -= price;
+      totalPrice.innerText = totalValue;
+      button.remove();
+    });
   });
 };
 
@@ -40,18 +49,43 @@ const addToList = (productsArray) => {
   productsArray.forEach((product) => {
     const projectAdd = createCartProductElement(product);
     list.appendChild(projectAdd);
+    const { price } = product;
+    totalValue += price;
+    totalPrice.innerText = totalValue;
   });
 };
 
 const loadSavedProducts = async () => {
-  const productIds = getSavedCartIDs();
-  const loadList = await productIds.map((id) => {
-    const productInfos = fetchProduct(id);
-    return productInfos;
-  });
+  const loadList = await getAllProductsToBuy();
 
   Promise.all(loadList)
-    .then((resolve) => addToList(resolve));
+    .then((resolve) => {
+      addToList(resolve);
+      updateDeleteButton(resolve);
+    });
+};
+
+const buyList = async (self) => {
+  const id = self.target.parentNode.firstChild.innerText;
+  saveCartID(id);
+  const productInfos = await fetchProduct(id);
+  const projectAdd = createCartProductElement(productInfos);
+  list.appendChild(projectAdd);
+  const { price } = productInfos;
+  totalValue += price;
+  totalPrice.innerText = totalValue;
+  const loadList = await getAllProductsToBuy();
+  Promise.all(loadList)
+    .then((resolve) => {
+      updateDeleteButton(resolve);
+    });
+};
+
+const addProductButton = () => {
+  const allButtons = document.querySelectorAll('.product__add');
+  allButtons.forEach((button) => {
+    button.addEventListener('click', buyList);
+  });
 };
 
 const createList = async () => {
