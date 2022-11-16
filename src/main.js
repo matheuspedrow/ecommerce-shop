@@ -2,9 +2,10 @@ import { searchCep } from './helpers/cepFunctions';
 import './style.css';
 import { fetchProductsList, fetchProduct } from './helpers/fetchFunctions';
 import { createProductElement, createCartProductElement } from './helpers/shopFunctions';
-import { saveCartID } from './helpers/cartFunctions';
+import { saveCartID, getSavedCartIDs } from './helpers/cartFunctions';
 
 const productShow = document.querySelector('.products');
+const list = document.querySelector('.cart__products');
 
 const showLoading = (type = 'load') => {
   const load = document.createElement('h1');
@@ -25,7 +26,6 @@ const buyList = async (self) => {
   saveCartID(id);
   const productInfos = await fetchProduct(id);
   const projectAdd = createCartProductElement(productInfos);
-  const list = document.querySelector('.cart__products');
   list.appendChild(projectAdd);
 };
 
@@ -34,6 +34,24 @@ const addProductButton = () => {
   allButtons.forEach((button) => {
     button.addEventListener('click', buyList);
   });
+};
+
+const addToList = (productsArray) => {
+  productsArray.forEach((product) => {
+    const projectAdd = createCartProductElement(product);
+    list.appendChild(projectAdd);
+  });
+};
+
+const loadSavedProducts = async () => {
+  const productIds = getSavedCartIDs();
+  const loadList = await productIds.map((id) => {
+    const productInfos = fetchProduct(id);
+    return productInfos;
+  });
+
+  Promise.all(loadList)
+    .then((resolve) => addToList(resolve));
 };
 
 const createList = async () => {
@@ -55,4 +73,5 @@ const createList = async () => {
 window.onload = () => {
   document.querySelector('.cep-button').addEventListener('click', searchCep);
   createList();
+  loadSavedProducts();
 };
