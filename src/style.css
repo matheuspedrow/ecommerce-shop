@@ -321,7 +321,7 @@
   border: 3px solid white;
 }
 
-.loading {
+.loading , error {
   margin-right: auto;
   margin-left: auto;
 }
