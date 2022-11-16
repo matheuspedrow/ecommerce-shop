@@ -321,6 +321,11 @@
   border: 3px solid white;
 }
 
+.loading {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 @media screen and ( max-width : 1400px ) {
 
   .cart {
