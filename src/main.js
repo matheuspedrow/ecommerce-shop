@@ -29,18 +29,12 @@ const showLoading = (type = 'load') => {
   productShow.appendChild(load);
 };
 
-const hideLoading = () => document.querySelector('.loading').remove();
-
-const updateDeleteButton = (productList) => {
-  if (productList.length === 0) return;
-  const cartRemove = document.querySelectorAll('.cart__product__remove');
-  const index = cartRemove.length - 1;
-  cartRemove[index].addEventListener('click', () => {
-    const { price } = productList[index];
-    totalValue -= price;
-    totalPrice.innerText = totalValue;
-  });
+const addDelButton = ({ price }) => {
+  totalValue -= price;
+  totalPrice.innerText = totalValue.toFixed(2);
 };
+
+const hideLoading = () => document.querySelector('.loading').remove();
 
 const addToList = (productsArray) => {
   productsArray.forEach((product) => {
@@ -48,7 +42,16 @@ const addToList = (productsArray) => {
     list.appendChild(projectAdd);
     const { price } = product;
     totalValue += price;
-    totalPrice.innerText = totalValue;
+    totalPrice.innerText = totalValue.toFixed(2);
+  });
+};
+
+const updateDeleteButton = (productList) => {
+  const delButton = document.querySelectorAll('.cart__product');
+  delButton.forEach((product, index) => {
+    product.addEventListener('click', () => {
+      addDelButton(productList[index]);
+    });
   });
 };
 
@@ -70,12 +73,11 @@ const buyList = async (self) => {
   list.appendChild(projectAdd);
   const { price } = productInfos;
   totalValue += price;
-  totalPrice.innerText = totalValue;
-  const loadList = await getAllProductsToBuy();
-  Promise.all(loadList)
-    .then((resolve) => {
-      updateDeleteButton(resolve);
-    });
+  totalPrice.innerText = totalValue.toFixed(2);
+  const delButton = document.querySelectorAll('.cart__product');
+  delButton[delButton.length - 1].addEventListener('click', () => {
+    addDelButton(productInfos);
+  });
 };
 
 const addProductButton = () => {
