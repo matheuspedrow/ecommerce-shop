@@ -32,16 +32,13 @@ const showLoading = (type = 'load') => {
 const hideLoading = () => document.querySelector('.loading').remove();
 
 const updateDeleteButton = (productList) => {
-  const deleteButtons = document.querySelectorAll('.cart__item');
-  deleteButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const id = button.firstChild.innerText;
-      const product = productList.find((product) => product.id === id);
-      const { price } = product;
-      totalValue -= price;
-      totalPrice.innerText = totalValue;
-      button.remove();
-    });
+  if (productList.length === 0) return;
+  const cartRemove = document.querySelectorAll('.cart__product__remove');
+  const index = cartRemove.length - 1;
+  cartRemove[index].addEventListener('click', () => {
+    const { price } = productList[index];
+    totalValue -= price;
+    totalPrice.innerText = totalValue;
   });
 };
 
