@@ -1,21 +1,5 @@
-# Boas-vindas ao repositório do projeto Carrinho de Compras
+# Boas-vindas ao repositório do projeto Carrinho de Compras!
 
-Para realizar o projeto, atente-se a cada passo descrito a seguir, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
-
-# Termos e acordos
-
-Ao iniciar este projeto, você concorda com as diretrizes do [Código de Conduta e do Manual da Pessoa Estudante da Trybe](https://app.betrybe.com/learn/student-manual/codigo-de-conduta-da-pessoa-estudante).
-
-# Entregáveis
-
-<details>
-  <summary><strong>🤷🏽‍♀️ Como entregar</strong></summary><br />
-
-  Para entregar o seu projeto você deverá criar um _Pull Request_ neste repositório.
-
-  Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://app.betrybe.com/learn/course/5e938f69-6e32-43b3-9685-c936530fd326/module/f04cdb21-382e-4588-8950-3b1a29afd2dd/section/876a615b-f578-4d65-a820-de9f3e5e57db/lesson/be8632bf-7bb7-4c01-a5d9-7aadac3a58f0) e nosso [Blog - Git & GitHub](https://blog.betrybe.com/tecnologia/git-e-github/) sempre que precisar!
-</details>
 
 <details>
   <summary><strong>👨‍💻 O que deverá ser desenvolvido</strong></summary><br />
@@ -24,28 +8,9 @@ Você vai desenvolver **carrinho de compras** totalmente dinâmico! 🛒
 
 Para isso, vai consumir dados diretamente de uma **API!** 🤩
 
-Isso mesmo! Da sigla em inglês _Application Programming Interface_, uma API é um ponto de contato na internet com determinado serviço e nesse projeto você vai utilizar a API do Mercado Livre para buscar produtos à venda. 🏷
-
-E não para por aí! 🤩
-
-Você já aprendeu sobre a importância de ter uma mentalidade orientada a testes, não é mesmo? E também já sabe como a implementação de testes contribui para a escrita de códigos mais confiáveis e com boa performance.
-
-Nesse projeto você vai ter a experiência de pôr em prática o desenvolvimento orientado a testes, o famoso TDD (Test Driven Development)! Que te ajuda a garantir um código de qualidade, percebendo os casos de uso da sua aplicação e garantindo que ela está funcionando da maneira correta! 🚀
-
 Ao finalizar o projeto, ele deve ter o comportamento parecido com o gif abaixo:
 
 ![Project Gif](/images/prototipo.gif)
-
-</details>
-
-<details>
-  <summary><strong>🗓 Data de Entrega</strong></summary><br />
-
-# Data de entrega
-
-- Projeto individual;
-- Serão `4` dias de projeto;
-- Data de entrega para avaliação final do projeto: `30/11/2022 14:00`.
 
 </details>
 
@@ -56,103 +21,12 @@ Ao finalizar o projeto, ele deve ter o comportamento parecido com o gif abaixo:
 
 1. Clone o repositório
 
-- `git clone git@github.com:tryber/sd-027-b-project-shopping-cart.git`.
-- Entre na pasta do repositório que você acabou de clonar:
-  - `cd sd-027-b-project-shopping-cart`
-
 2. Instale as dependências e inicialize o projeto
 
 - Instale as dependências:
   - `npm install`
-
-3. Crie uma branch a partir da branch `main`
-
-- Verifique que você está na branch `main`
-  - Exemplo: `git branch`
-- Se não estiver, mude para a branch `main`
-  - Exemplo: `git checkout main`
-- Agora, crie uma branch onde você vai guardar os `commits` do seu projeto
-  - Você deve criar uma branch no seguinte formato: `nome-sobrenome-nome-do-projeto`
-  - Exemplo: `git checkout -b maria-silva-shopping-cart`
-
-4. Quando fizer mudanças, adicione-as ao _stage_ do Git e faça um `commit`
-
-- Verifique que as mudanças ainda não estão no _stage_
-  - Exemplo: `git status` (deve aparecer as alterações realizadas em vermelho)
-- Adicione o novo arquivo ao _stage_ do Git
-  - Exemplo:
-    - `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-    - `git status` (deve aparecer listado os arquivos em verde)
-- Faça o `commit` inicial
-  - Exemplo:
-    - `git commit -m 'iniciando o projeto. VAMOS COM TUDO :rocket:'` (fazendo o primeiro commit)
-    - `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
-
-5. Adicione a sua branch com o novo `commit` ao repositório remoto
-
-- Usando o exemplo anterior: `git push -u origin maria-silva-shopping-cart`
-
-6. Crie um novo `Pull Request` _(PR)_
-
-- Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-027-b-project-shopping-cart/pulls)
-- Clique no botão verde _"New pull request"_
-- Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
-  - Coloque um título para a sua _Pull Request_
-  - Exemplo: _"Cria tela de busca"_
-- Clique no botão verde _"Create pull request"_
-- Adicione uma descrição para o _Pull Request_, um título claro que o identifique, e clique no botão verde _"Create pull request"_
-- **Não se preocupe em preencher mais nada por enquanto!**
-- Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-027-b-project-shopping-cart/pulls) e confira que o seu _Pull Request_ está criado
-
-</details>
-
-<details>
-  <summary><strong>⌨️ Durante o desenvolvimento</strong></summary><br />
-
-- Faça `commits` das alterações que você fizer no código regularmente;
-
-- Lembre-se de sempre atualizar o repositório remoto após um (ou alguns) `commits`;
-
-- Os comandos que você utilizará com mais frequência são:
-
-    1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_;
-
-    2. `git add` _(para adicionar arquivos ao stage do Git)_;
-
-    3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_;
-
-    4. `git push -u origin nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_;
-
-    5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_.
-
-</details>
-
-<details>
-  <summary><strong>🤝 Depois de terminar o desenvolvimento (opcional)</strong></summary><br />
-
-  Para sinalizar que o seu projeto está pronto para o _"Code Review"_, faça o seguinte:
-
-- Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque quem você deseja que realize o _code review_, por exemplo, as pessoas da sua tribo:
-
-- No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**;
-
-- No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
-
-- No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-027-b`.
-
-  Caso tenha alguma dúvida, [aqui tem um vídeo explicativo](https://vimeo.com/362189205).
-
-</details>
-
-<details>
-  <summary><strong>🕵🏿 Revisando um pull request</strong></summary><br />
-
-  Use o conteúdo sobre [Code Review](https://app.betrybe.com/learn/course/5e938f69-6e32-43b3-9685-c936530fd326/module/f04cdb21-382e-4588-8950-3b1a29afd2dd/section/b3af2f05-08e5-4b4a-9667-6f5f729c351d/lesson/36268865-fc46-40c7-92bf-cbded9af9006) para te ajudar a revisar os _Pull Requests_.
-
-</details>
-
-<details>
-  <summary><strong>🎛 Linter</strong></summary><br />
+- Inicialize o projeto:
+  - `npm run dev`
 
 ### ESLint e Stylelint
 
@@ -173,12 +47,6 @@ Se a análise do `ESLint` e do `Stylelint` encontrarem problemas no seu código,
 
 Você pode também instalar o plugin do `ESLint` no VSCode. Para isso, basta fazer o download do plugin `ESLint` e instalá-lo.
 
-Em caso de dúvidas, confira o material do course sobre [ESLint e Stylelint](https://app.betrybe.com/learn/course/5e938f69-6e32-43b3-9685-c936530fd326/module/f04cdb21-382e-4588-8950-3b1a29afd2dd/section/3b1546b5-f7bc-40f7-a674-77b16c408756/lesson/0c9e8c0e-24c3-4526-ba6b-60d95913e022).
-
-⚠️ **PULL REQUESTS COM ISSUES NO LINTER NÃO SERÃO AVALIADAS. ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠️
-
-</details>
-
 <details>
   <summary><strong>🛠 Testes</strong></summary><br />
 
@@ -189,8 +57,6 @@ Você vai ser responsável por implementar testes para as funções: `fetchProdu
 ### Cobertura de testes
 
 Para avaliar se seus testes estão cobrindo toda a função, será utilizado a **cobertura de testes**, que avalia a eficácia dos testes implementados de acordo com os requisitos, determinando se cobrem o que foi pedido ou não.
-
-⚠️ **Será testado apenas as funções pedidas e não toda a aplicação!**
 
 Conforme você for realizando os testes do projeto, a porcentagem da cobertura total irá aumentar. Para a cobertura total será avaliado 25%, 50%, 75%, e, por fim, 100% dos testes. Para cada função solicitada a cobertura de testes irá avaliar a cobertura das linhas da sua função.
 
@@ -256,7 +122,6 @@ Após executar o comando acima, será aberta uma janela de navegador e então ba
 
 Você também pode assistir a [este](https://vimeo.com/539240375/a116a166b9) vídeo 😉🎙
 
-⚠️ **Atente-se para os nomes de classes que alguns elementos de seu projeto devem possuir**. O não cumprimento de um requisito, total ou parcialmente, impactará em sua avaliação.
 
 </details>
 
@@ -269,7 +134,6 @@ O arquivo `src/helpers/cartFunctions.js` contém uma estrutura de código inicia
 
 É no `main.js` que você vai implementar a lógica para desenvolver o projeto. Fique à vontade para criar novas funções e/ou arquivos! 😉
 
-Não se preocupe! O requisito vai informar quando for necessário utilizar as funções já existentes.
 
 <details>
   <summary>
